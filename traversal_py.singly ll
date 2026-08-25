@@ -1,0 +1,88 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyM2dOHmyTN/RcTL4lgzAx4e",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/DasneemDina/HTML/blob/main/traversal_py.singly%20ll\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "_FGEwdDrBve8"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class node:\n",
+        "  def __init__(self, data):\n",
+        "    self.data = data\n",
+        "    self.next = None\n",
+        "\n",
+        "class LinkedList:\n",
+        "  def __init__(self):\n",
+        "    self.head = None\n",
+        "\n",
+        "  def printlist(self):\n",
+        "    temp = self.head\n",
+        "    while(temp):\n",
+        "      print(temp.data)\n",
+        "      temp = temp.next\n",
+        "\n",
+        "if __name__ == '__main__':\n",
+        "  llist = LinkedList()\n",
+        "  llist.head = node(1)\n",
+        "  second = node(2)\n",
+        "  third = node(3)\n",
+        "\n",
+        "  llist.head.next = second\n",
+        "  second.next = third\n",
+        "\n",
+        "  llist.printlist()"
+      ],
+      "metadata": {
+        "id": "gcvFN4hA-aV1",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "bfa10fb9-03f9-4059-8d00-b28cfd5b48ce"
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "1\n",
+            "2\n",
+            "3\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
