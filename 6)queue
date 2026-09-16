@@ -1,0 +1,123 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMj2nEAFU2PhvudS5Wl1CCT",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/DasneemDina/HTML/blob/main/6)queue\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 2,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 280
+        },
+        "id": "BMEbXJBEzyLh",
+        "outputId": "2c0d47f2-525a-49db-b95a-36b16e6897d6"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Dequeued item is 10\n",
+            "Dequeued item is 20\n",
+            "Dequeued item is 30\n",
+            "Dequeued item is 40\n",
+            "Dequeued item is 50\n"
+          ]
+        },
+        {
+          "output_type": "error",
+          "ename": "TypeError",
+          "evalue": "can only concatenate str (not \"NoneType\") to str",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
+            "\u001b[0;32m/tmp/ipykernel_1936/1200355950.py\u001b[0m in \u001b[0;36m<cell line: 0>\u001b[0;34m()\u001b[0m\n\u001b[1;32m     47\u001b[0m     \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"Dequeued item is \"\u001b[0m \u001b[0;34m+\u001b[0m \u001b[0mq\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mDeQueue\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;31m# Dequeues 40\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     48\u001b[0m     \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"Dequeued item is \"\u001b[0m \u001b[0;34m+\u001b[0m \u001b[0mq\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mDeQueue\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;31m# Dequeues 50\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 49\u001b[0;31m     \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"Dequeued item is \"\u001b[0m \u001b[0;34m+\u001b[0m \u001b[0mq\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mDeQueue\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;31m# Tries to dequeue from empty queue, returns None\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+            "\u001b[0;31mTypeError\u001b[0m: can only concatenate str (not \"NoneType\") to str"
+          ]
+        }
+      ],
+      "source": [
+        "class Node:\n",
+        "    def __init__(self, data):\n",
+        "        self.data = data\n",
+        "        self.next = None\n",
+        "\n",
+        "\n",
+        "class Queue:\n",
+        "    def __init__(self):\n",
+        "        self.front = None\n",
+        "        self.rear = None\n",
+        "\n",
+        "    def isEmpty(self):\n",
+        "        return self.front is None\n",
+        "\n",
+        "    def EnQueue(self, item):\n",
+        "        temp = Node(item)\n",
+        "\n",
+        "        if self.rear is None:\n",
+        "            self.front = temp\n",
+        "            self.rear = temp\n",
+        "            return\n",
+        "        self.rear.next = temp\n",
+        "        self.rear = temp\n",
+        "\n",
+        "    def DeQueue(self):\n",
+        "        if self.isEmpty():\n",
+        "            return None  # Or raise an exception for an empty queue\n",
+        "        temp = self.front\n",
+        "        self.front = temp.next\n",
+        "\n",
+        "        if self.front is None:\n",
+        "            self.rear = None\n",
+        "        return str(temp.data)\n",
+        "\n",
+        "\n",
+        "if __name__ == '__main__':\n",
+        "    q = Queue()\n",
+        "    q.EnQueue(10)\n",
+        "    q.EnQueue(20)\n",
+        "    print(\"Dequeued item is \" + q.DeQueue()) # Dequeues 10\n",
+        "    print(\"Dequeued item is \" + q.DeQueue()) # Dequeues 20\n",
+        "    q.EnQueue(30)\n",
+        "    q.EnQueue(40)\n",
+        "    q.EnQueue(50)\n",
+        "\n",
+        "    print(\"Dequeued item is \" + q.DeQueue()) # Dequeues 30\n",
+        "    print(\"Dequeued item is \" + q.DeQueue()) # Dequeues 40\n",
+        "    print(\"Dequeued item is \" + q.DeQueue()) # Dequeues 50\n",
+        "\n",
+        "    # Handle the case where DeQueue returns None when the queue is empty\n",
+        "    dequeued_item = q.DeQueue()\n",
+        "    if dequeued_item is not None:\n",
+        "        print(\"Dequeued item is \" + dequeued_item)\n",
+        "    else:\n",
+        "        print(\"Queue is empty, cannot dequeue any more items.\")"
+      ]
+    }
+  ]
+}
