@@ -1,0 +1,74 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyN/8Bc+ROdBWERB4g54QsqC",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/DasneemDina/HTML/blob/main/8)binary_search\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 2,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "pVCGOjXF7ekJ",
+        "outputId": "5e9f1c8f-a2af-47ec-e5e3-ae02d47a35a8"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Element is present at index  3\n"
+          ]
+        }
+      ],
+      "source": [
+        "def binarySearch(arr, l, r, x):\n",
+        "    if r >= l:\n",
+        "        mid = l + (r - l) // 2  # Use integer division //\n",
+        "        midd = int(mid) # mid is already an int due to //, but keeping for clarity\n",
+        "        if arr[midd] == x:\n",
+        "            return midd\n",
+        "        elif arr[midd] > x:\n",
+        "            return binarySearch(arr, l, midd - 1, x)\n",
+        "        else:  # arr[midd] < x\n",
+        "            return binarySearch(arr, midd + 1, r, x)\n",
+        "    else:\n",
+        "        return -1\n",
+        "\n",
+        "\n",
+        "arr = [ 2, 3, 4, 10, 40 ]\n",
+        "x = 10\n",
+        "\n",
+        "result = binarySearch(arr, 0, len(arr) - 1, x)\n",
+        "if result != -1:\n",
+        "    print(\"Element is present at index % d\" % result)\n",
+        "else:\n",
+        "    print(\"Element is not present in array\")"
+      ]
+    }
+  ]
+}
