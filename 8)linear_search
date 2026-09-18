@@ -1,0 +1,73 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNRImVv8hjQ6u8qCGbxx4ka",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/DasneemDina/HTML/blob/main/8)linear_search\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 2,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "m6C2zXOjA4lh",
+        "outputId": "4bf6f790-f4b6-43ca-c392-3441da699323"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Element is present at index 3\n"
+          ]
+        }
+      ],
+      "source": [
+        "def search(arr, n, x):\n",
+        "    for i in range (0, n):\n",
+        "        if (arr[i] == x):\n",
+        "            return i\n",
+        "    return -1\n",
+        "\n",
+        "\n",
+        "arr = [ 2, 3, 4, 10, 40 ];\n",
+        "\n",
+        "x = 10;\n",
+        "\n",
+        "n = len(arr);\n",
+        "\n",
+        "result = search(arr, n, x)\n",
+        "if(result == -1):\n",
+        "\n",
+        "    print(\"Element is not present in array\")\n",
+        "\n",
+        "else:\n",
+        "\n",
+        "    print(\"Element is present at index\", result);"
+      ]
+    }
+  ]
+}
